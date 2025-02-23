@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --background-primary: #181818;
+  --background-secondary: #1f1f1f;
+  --divider-color: #2b2b2b;
+  --icon-home: #fffb00;
+  --icon-page: #e37933;
+  --icon-off: #868686;
+  --icon-on: #ffffff;
+  --default-selection: #0073ca;
+  --page-selection: #37373d;
+
+  --main-font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  --page-font-family: Menlo, Monaco, "Courier New", monospace;
+
+  font-family: var(--main-font-family);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 13px;
+  background-color: var(--background-primary);
+}

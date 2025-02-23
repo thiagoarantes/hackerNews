@@ -1,0 +1,92 @@
+@import "../..//node_modules/@vscode/codicons/dist/codicon.css";
+
+.main {
+  margin: 0;
+  padding: 0;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .titleBar {
+    line-height: 35px;
+    border-bottom: 1px solid var(--divider-color);
+    text-align: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+
+    .iconNav {
+      width: 48px;
+      border-right: 1px solid var(--divider-color);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+
+      .codicon {
+        font-size: 24px;
+        padding: 12px;
+        cursor: pointer;
+        color: var(--icon-off);
+
+        &.open {
+          color: var(--icon-on);
+          position: relative;
+
+          &:after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: var(--default-selection);
+            left: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+
+    .nav {
+      width: 230px;
+      border-right: 1px solid var(--divider-color);
+
+      .title {
+        padding: 0 12px 0 20px;
+        font-variant: small-caps;
+        line-height: 35px;
+      }
+
+      .pages {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li {
+          padding: 0 12px 0 20px;
+          line-height: 26px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          &.selected {
+            background-color: var(--page-selection);
+          }
+
+          .codicon {
+            color: var(--icon-page);
+            font-size: 12px;
+            margin-top: 2px;
+
+            &-home {
+              color: var(--icon-home);
+            }
+          }
+        }
+      }
+    }
+  }
+}
