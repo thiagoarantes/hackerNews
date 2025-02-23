@@ -42,7 +42,9 @@
     </div>
     }
 
-    <div class="page"><router-outlet /></div>
+    <div class="page">
+      <div class="tab">{{ currentPageTitle }}<router-outlet /></div>
+    </div>
   </div>
 
   <div class="footer">
