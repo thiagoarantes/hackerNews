@@ -16,6 +16,7 @@
   }
 
   .content {
+    font-family: var(--page-font-family);
     flex-grow: 1;
     padding: 20px;
     background-color: var(--background-secondary);
