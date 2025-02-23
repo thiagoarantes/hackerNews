@@ -89,4 +89,27 @@
       }
     }
   }
+
+  .footer {
+    border-top: 1px solid var(--divider-color);
+    height: 22px;
+    line-height: 22px;
+    display: flex;
+
+    .codicon {
+      height: 100%;
+      background-color: var(--default-selection);
+      font-size: 14px;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .copy {
+      flex-grow: 1;
+      text-align: right;
+      padding-right: 10px;
+      font-size: 12px;
+    }
+  }
 }

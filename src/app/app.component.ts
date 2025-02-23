@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'hacker-news';
   currentPage = 'home';
   navOpen = false;
+  currentYear = new Date().getFullYear();
 
   toggleNav() {
     this.navOpen = !this.navOpen;
