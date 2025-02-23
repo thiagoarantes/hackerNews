@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { TabComponent } from '../../components';
 
 @Component({
   selector: 'app-best-stories',
-  imports: [],
+  imports: [TabComponent],
   templateUrl: './best-stories.component.html',
-  styleUrl: './best-stories.component.scss'
+  styleUrl: './best-stories.component.scss',
 })
 export class BestStoriesComponent {
+  private readonly router = inject(Router);
 
+  readonly path = this.router.url.replace('/', '');
+  readonly title = this.router.config.find((route) => route.path === this.path)
+    ?.title;
 }

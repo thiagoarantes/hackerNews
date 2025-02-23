@@ -19,7 +19,7 @@
           (click)="navigateTo('all')"
           (keypress)="navigateTo('all')"
         >
-          <div class="codicon codicon-home"></div>
+          <app-page-icon path="all" />
           All Stories
         </li>
         <li
@@ -27,7 +27,7 @@
           (click)="navigateTo('top')"
           (keypress)="navigateTo('top')"
         >
-          <div class="codicon codicon-globe"></div>
+          <app-page-icon path="top" />
           Top Stories
         </li>
         <li
@@ -35,7 +35,7 @@
           (click)="navigateTo('best')"
           (keypress)="navigateTo('best')"
         >
-          <div class="codicon codicon-globe"></div>
+          <app-page-icon path="best" />
           Best Stories
         </li>
       </ul>
@@ -43,12 +43,9 @@
     }
 
     <div class="page">
-      <div class="tab">{{ currentPageTitle }}<router-outlet /></div>
+      <router-outlet />
     </div>
   </div>
 
-  <div class="footer">
-    <div class="codicon codicon-cloud"></div>
-    <div class="copy">Thiago Arantes &copy; {{ currentYear }}</div>
-  </div>
+  <app-footer></app-footer>
 </div>

@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
-import { AllStoriesComponent } from './pages/all-stories/all-stories.component';
-import { TopStoriesComponent } from './pages/top-stories/top-stories.component';
-import { BestStoriesComponent } from './pages/best-stories/best-stories.component';
+import {
+  AllStoriesComponent,
+  BestStoriesComponent,
+  TopStoriesComponent,
+} from './pages';
 
 export const routes: Routes = [
   {

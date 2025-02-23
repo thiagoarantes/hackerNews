@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { FooterComponent, PageIconComponent } from './components';
 import { PAGE_ROUTES, PageRoutes } from './types';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [FooterComponent, PageIconComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -14,7 +15,6 @@ export class AppComponent {
   currentPage: PageRoutes = PAGE_ROUTES.ALL;
   currentPageTitle = 'All Stories';
   navOpen = true;
-  currentYear = new Date().getFullYear();
 
   toggleNav() {
     this.navOpen = !this.navOpen;
