@@ -15,19 +15,11 @@
       <div class="title">explorer</div>
       <ul class="pages">
         <li
-          [class.selected]="currentPage === 'home'"
-          (click)="navigateTo('home')"
-          (keypress)="navigateTo('home')"
-        >
-          <div class="codicon codicon-home"></div>
-          Home
-        </li>
-        <li
           [class.selected]="currentPage === 'all'"
           (click)="navigateTo('all')"
           (keypress)="navigateTo('all')"
         >
-          <div class="codicon codicon-globe"></div>
+          <div class="codicon codicon-home"></div>
           All Stories
         </li>
         <li

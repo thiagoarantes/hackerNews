@@ -8,9 +8,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'hacker-news';
-  currentPage = 'home';
-  navOpen = false;
+  currentPage = 'all';
+  navOpen = true;
   currentYear = new Date().getFullYear();
 
   toggleNav() {
