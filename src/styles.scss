@@ -29,3 +29,8 @@ body {
   font-size: 13px;
   background-color: var(--background-primary);
 }
+
+app-page-icon {
+  display: flex;
+  align-items: center;
+}

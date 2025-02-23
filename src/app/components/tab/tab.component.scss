@@ -1,0 +1,23 @@
+.tab {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    width: fit-content;
+    min-width: 120px;
+    height: 35px;
+    line-height: 36px;
+    padding: 0 20px 0 16px;
+    background-color: var(--background-secondary);
+    border-top: 1px solid var(--default-selection);
+    border-right: 1px solid var(--divider-color);
+    display: flex;
+    gap: 10px;
+  }
+
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--background-secondary);
+  }
+}

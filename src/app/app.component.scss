@@ -89,13 +89,12 @@
               border: 1px solid var(--default-selection);
             }
           }
-
-          app-page-icon {
-            display: flex;
-            align-items: center;
-          }
         }
       }
+    }
+
+    .page {
+      flex-grow: 1;
     }
   }
 }
