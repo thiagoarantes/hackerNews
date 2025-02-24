@@ -20,11 +20,13 @@ export class HackerNewsService {
       .pipe(
         mergeMap((ids) =>
           forkJoin(
-            (ids as number[]).map((id) =>
-              this.http.get(
-                `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
+            (ids as number[])
+              .slice(0, 20)
+              .map((id) =>
+                this.http.get(
+                  `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
+                )
               )
-            )
           )
         )
       );
