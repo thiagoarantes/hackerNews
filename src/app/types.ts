@@ -1,12 +1,12 @@
 export const PAGE_ROUTES = {
-  all: 'all',
+  new: 'new',
   top: 'top',
   best: 'best',
   home: 'home',
 } as const;
 
 export const PAGE_TITLES = {
-  all: 'All Stories',
+  new: 'New Stories',
   top: 'Top Stories',
   best: 'Best Stories',
   home: 'Hacker News',

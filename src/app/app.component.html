@@ -15,12 +15,12 @@
       <div class="title">explorer</div>
       <ul class="pages">
         <li
-          [class.selected]="currentPage === 'all'"
-          (click)="navigateTo('all')"
-          (keypress)="navigateTo('all')"
+          [class.selected]="currentPage === 'new'"
+          (click)="navigateTo('new')"
+          (keypress)="navigateTo('new')"
         >
-          <app-page-icon path="all" />
-          All Stories
+          <app-page-icon path="new" />
+          New Stories
         </li>
         <li
           [class.selected]="currentPage === 'top'"

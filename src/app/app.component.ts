@@ -11,9 +11,10 @@ import { PAGE_ROUTES, PAGE_TITLES, PageRoutes, PageTitles } from './types';
 })
 export class AppComponent {
   private readonly router = inject(Router);
+  private readonly path = this.router.url.replace('/', '') as PageRoutes;
 
-  currentPage: PageRoutes = PAGE_ROUTES.all;
-  currentPageTitle: PageTitles = PAGE_TITLES.all;
+  currentPage: PageRoutes = PAGE_ROUTES[this.path];
+  currentPageTitle: PageTitles = PAGE_TITLES[this.path];
   navOpen = true;
 
   toggleNav() {

@@ -23,7 +23,7 @@ export class StoriesComponent {
   constructor(private readonly service: HackerNewsService) {}
 
   ngOnInit() {
-    this.service.getAllStories('best').subscribe((stories) => {
+    this.service.getAllStories(this.path).subscribe((stories) => {
       this.allStories = stories as any[];
       this.isLoadingStories = false;
     });

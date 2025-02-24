@@ -4,8 +4,8 @@ import { PAGE_ROUTES, PAGE_TITLES } from './types';
 
 export const routes: Routes = [
   {
-    path: PAGE_ROUTES.all,
-    title: `${PAGE_TITLES.all} - Hacker News`,
+    path: PAGE_ROUTES.new,
+    title: `${PAGE_TITLES.new} - Hacker News`,
     component: StoriesComponent,
   },
   {
@@ -23,5 +23,5 @@ export const routes: Routes = [
     title: PAGE_TITLES.home,
     component: HomeComponent,
   },
-  { path: '', redirectTo: `/${PAGE_ROUTES.all}`, pathMatch: 'full' },
+  { path: '', redirectTo: `/${PAGE_ROUTES.new}`, pathMatch: 'full' },
 ];
