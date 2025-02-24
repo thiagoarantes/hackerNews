@@ -14,9 +14,11 @@ export class HackerNewsService {
     }),
   };
 
-  getAllStories() {
+  getAllStories(type: string) {
     return this.http
-      .get('https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty')
+      .get(
+        `https://hacker-news.firebaseio.com/v0/${type}stories.json?print=pretty`
+      )
       .pipe(
         mergeMap((ids) =>
           forkJoin(

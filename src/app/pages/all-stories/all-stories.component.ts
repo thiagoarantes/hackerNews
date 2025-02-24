@@ -19,7 +19,7 @@ export class AllStoriesComponent {
   constructor(private readonly service: HackerNewsService) {}
 
   ngOnInit() {
-    this.service.getAllStories().subscribe((stories) => {
+    this.service.getAllStories('new').subscribe((stories) => {
       this.allStories = stories as any[];
       this.isLoadingStories = false;
     });
