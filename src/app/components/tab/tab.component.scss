@@ -6,16 +6,34 @@
 
   .title {
     width: fit-content;
-    min-width: 120px;
+    min-width: 125px;
     line-height: 36px;
-    padding: 0 20px 0 16px;
+    padding: 0 6px 0 16px;
     background-color: var(--background-secondary);
     border-top: 1px solid var(--default-selection);
     border-right: 1px solid var(--divider-color);
     display: flex;
     gap: 10px;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: -1px;
     z-index: 1;
+
+    .codicon {
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 2px;
+      font-size: 14px;
+      color: var(--icon-on);
+      background-color: var(--background-secondary);
+      padding: 0;
+
+      &:hover {
+        background-color: var(--page-hover);
+        cursor: pointer;
+      }
+    }
   }
 
   .content {

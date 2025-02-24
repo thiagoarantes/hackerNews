@@ -1,6 +1,10 @@
 <div class="tab">
   <div class="title">
-    <app-page-icon [path]="path()"></app-page-icon>{{ title() }}
+    <app-page-icon [path]="path()"></app-page-icon>{{ title()
+    }}<button
+      class="codicon codicon-chrome-close"
+      (click)="navigateToHome()"
+    ></button>
   </div>
   <div #content class="content"><ng-content></ng-content></div>
 </div>

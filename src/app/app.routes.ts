@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import {
   AllStoriesComponent,
+  HomeComponent,
   BestStoriesComponent,
   TopStoriesComponent,
 } from './pages';
@@ -21,6 +22,11 @@ export const routes: Routes = [
     path: PAGE_ROUTES.best,
     title: `${PAGE_TITLES.best} - Hacker News`,
     component: BestStoriesComponent,
+  },
+  {
+    path: PAGE_ROUTES.home,
+    title: PAGE_TITLES.home,
+    component: HomeComponent,
   },
   { path: '', redirectTo: `/${PAGE_ROUTES.all}`, pathMatch: 'full' },
 ];

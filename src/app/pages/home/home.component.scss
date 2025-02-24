@@ -1,0 +1,12 @@
+.home {
+  background-color: var(--background-secondary);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .codicon {
+    font-size: 290px;
+    color: var(--background-primary);
+  }
+}
