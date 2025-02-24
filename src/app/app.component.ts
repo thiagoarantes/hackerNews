@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { FooterComponent, PageIconComponent } from './components';
-import { PAGE_ROUTES, PageRoutes } from './types';
+import { PAGE_ROUTES, PAGE_TITLES, PageRoutes, PageTitles } from './types';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +12,8 @@ import { PAGE_ROUTES, PageRoutes } from './types';
 export class AppComponent {
   private readonly router = inject(Router);
 
-  currentPage: PageRoutes = PAGE_ROUTES.ALL;
-  currentPageTitle = 'All Stories';
+  currentPage: PageRoutes = PAGE_ROUTES.all;
+  currentPageTitle: PageTitles = PAGE_TITLES.all;
   navOpen = true;
 
   toggleNav() {
@@ -24,7 +24,7 @@ export class AppComponent {
     this.currentPage = page;
 
     const route = this.router.config.find((route) => route.path === page);
-    this.currentPageTitle = typeof route?.title === 'string' ? route.title : '';
+    this.currentPageTitle = PAGE_TITLES[route?.title as PageRoutes];
 
     this.router.navigate([page]);
   }

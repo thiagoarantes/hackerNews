@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { TabComponent } from '../../components';
+import { PAGE_ROUTES, PAGE_TITLES } from '../../types';
 
 @Component({
   selector: 'app-all-stories',
@@ -9,9 +9,6 @@ import { TabComponent } from '../../components';
   styleUrl: './all-stories.component.scss',
 })
 export class AllStoriesComponent {
-  private readonly router = inject(Router);
-
-  readonly path = this.router.url.replace('/', '');
-  readonly title = this.router.config.find((route) => route.path === this.path)
-    ?.title;
+  readonly path = PAGE_ROUTES.all;
+  readonly title = PAGE_TITLES.all;
 }

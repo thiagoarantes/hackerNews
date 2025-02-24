@@ -4,22 +4,23 @@ import {
   BestStoriesComponent,
   TopStoriesComponent,
 } from './pages';
+import { PAGE_ROUTES, PAGE_TITLES } from './types';
 
 export const routes: Routes = [
   {
-    path: 'all',
-    title: 'All Stories',
+    path: PAGE_ROUTES.all,
+    title: PAGE_TITLES.all,
     component: AllStoriesComponent,
   },
   {
-    path: 'top',
-    title: 'Top Stories',
+    path: PAGE_ROUTES.top,
+    title: PAGE_TITLES.top,
     component: TopStoriesComponent,
   },
   {
-    path: 'best',
-    title: 'Best Stories',
+    path: PAGE_ROUTES.best,
+    title: PAGE_TITLES.best,
     component: BestStoriesComponent,
   },
-  { path: '', redirectTo: '/all', pathMatch: 'full' },
+  { path: '', redirectTo: `/${PAGE_ROUTES.all}`, pathMatch: 'full' },
 ];
