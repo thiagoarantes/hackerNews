@@ -1,6 +1,8 @@
 .tab {
+  position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   .title {
     width: fit-content;
@@ -13,9 +15,12 @@
     border-right: 1px solid var(--divider-color);
     display: flex;
     gap: 10px;
+    margin-bottom: -1px;
+    z-index: 1;
   }
 
   .content {
+    border-top: 1px solid var(--divider-color);
     font-family: var(--page-font-family);
     flex-grow: 1;
     padding: 20px;

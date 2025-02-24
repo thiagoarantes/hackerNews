@@ -22,9 +22,7 @@ export class AppComponent {
 
   navigateTo(page: PageRoutes) {
     this.currentPage = page;
-
-    const route = this.router.config.find((route) => route.path === page);
-    this.currentPageTitle = PAGE_TITLES[route?.title as PageRoutes];
+    this.currentPageTitle = PAGE_TITLES[page];
 
     this.router.navigate([page]);
   }

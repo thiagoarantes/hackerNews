@@ -34,3 +34,11 @@ app-page-icon {
   display: flex;
   align-items: center;
 }
+
+app-all-stories,
+app-best-stories,
+app-new-stories,
+app-tab {
+  display: block;
+  height: 100%;
+}
