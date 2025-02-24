@@ -1,0 +1,16 @@
+.story {
+  margin-bottom: 6px;
+
+  .title {
+    white-space: nowrap;
+  }
+
+  .details {
+    white-space: nowrap;
+    font-size: 10px;
+    display: flex;
+    gap: 10px;
+    color: var(--icon-off);
+    font-weight: 600;
+  }
+}

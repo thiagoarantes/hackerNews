@@ -1,0 +1,9 @@
+.link {
+  color: var(--icon-page);
+  text-decoration: underline;
+  font-weight: 600;
+
+  &.comment {
+    color: var(--default-selection);
+  }
+}

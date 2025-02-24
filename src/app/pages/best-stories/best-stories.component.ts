@@ -1,11 +1,12 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { TabComponent } from '../../components';
+import { TabComponent, PageLinkComponent } from '../../components';
 import { PAGE_ROUTES, PAGE_TITLES } from '../../types';
 import { HackerNewsService } from '../../services/hacker-news.service';
 
 @Component({
   selector: 'app-best-stories',
-  imports: [TabComponent],
+  imports: [DatePipe, PageLinkComponent, TabComponent],
   templateUrl: './best-stories.component.html',
   styleUrl: './best-stories.component.scss',
 })
@@ -23,5 +24,9 @@ export class BestStoriesComponent {
       this.allStories = stories as any[];
       this.isLoadingStories = false;
     });
+  }
+
+  displayDatePassedSince(date: number) {
+    return new DatePipe('en-US').transform(date * 1000, 'short');
   }
 }
