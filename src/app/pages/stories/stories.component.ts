@@ -1,18 +1,21 @@
 import { DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TabComponent, PageLinkComponent } from '../../components';
-import { PAGE_ROUTES, PAGE_TITLES } from '../../types';
+import { PAGE_TITLES, PageRoutes } from '../../types';
 import { HackerNewsService } from '../../services/hacker-news.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-best-stories',
+  selector: 'app-stories',
   imports: [DatePipe, PageLinkComponent, TabComponent],
-  templateUrl: './best-stories.component.html',
-  styleUrl: './best-stories.component.scss',
+  templateUrl: './stories.component.html',
+  styleUrl: './stories.component.scss',
 })
-export class BestStoriesComponent {
-  readonly path = PAGE_ROUTES.best;
-  readonly title = PAGE_TITLES.best;
+export class StoriesComponent {
+  private readonly router = inject(Router);
+
+  readonly path = this.router.url.replace('/', '') as PageRoutes;
+  readonly title = PAGE_TITLES[this.path];
 
   allStories: any[] = [];
   isLoadingStories = true;
