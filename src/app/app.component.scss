@@ -28,10 +28,10 @@
         font-size: 24px;
         padding: 12px;
         cursor: pointer;
-        color: var(--icon-off);
+        color: var(--text-inactive);
 
         &.open {
-          color: var(--icon-on);
+          color: var(--text-active);
           position: relative;
 
           &:after {
