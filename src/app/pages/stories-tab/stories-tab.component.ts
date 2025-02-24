@@ -6,12 +6,12 @@ import { HackerNewsService } from '../../services/hacker-news.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-stories',
+  selector: 'app-stories-tab',
   imports: [DatePipe, PageLinkComponent, TabComponent],
-  templateUrl: './stories.component.html',
-  styleUrl: './stories.component.scss',
+  templateUrl: './stories-tab.component.html',
+  styleUrl: './stories-tab.component.scss',
 })
-export class StoriesComponent {
+export class StoriesTabComponent {
   private readonly router = inject(Router);
 
   readonly path = this.router.url.replace('/', '') as PageRoutes;
