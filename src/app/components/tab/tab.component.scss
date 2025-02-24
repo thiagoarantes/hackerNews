@@ -1,13 +1,12 @@
 .tab {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 35px 1fr;
   height: 100%;
 
   .title {
     width: fit-content;
     min-width: 120px;
-    height: 35px;
     line-height: 36px;
     padding: 0 20px 0 16px;
     background-color: var(--background-secondary);
@@ -24,6 +23,10 @@
     font-family: var(--page-font-family);
     flex-grow: 1;
     padding: 20px;
+    max-height: calc(100vh - 135px);
     background-color: var(--background-secondary);
+    overflow-y: auto;
+    scrollbar-color: var(--page-hover) var(--background-secondary);
+    scrollbar-width: thin;
   }
 }
