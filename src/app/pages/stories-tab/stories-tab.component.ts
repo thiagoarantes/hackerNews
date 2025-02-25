@@ -28,19 +28,22 @@ export class StoriesTabComponent {
   ngOnInit() {
     this.service.getAllStoriesIds(this.path).subscribe((ids) => {
       this.allStoriesIds = ids as number[];
-      this.loadStoriesPage(this.currentPage);
+      this.loadNextStoriesPage();
     });
   }
 
-  loadStoriesPage(page: number) {
+  loadNextStoriesPage() {
     this.isLoadingStories = true;
-    this.currentPage = page;
 
-    const stories = this.service.getAllStories(this.allStoriesIds, page);
+    const stories = this.service.getAllStories(
+      this.allStoriesIds,
+      this.currentPage
+    );
 
     forkJoin(stories).subscribe((res) => {
       this.allStories.push(...(res as Story[]));
       this.isLoadingStories = false;
+      this.currentPage++;
     });
   }
 }

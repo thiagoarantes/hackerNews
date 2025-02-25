@@ -1,7 +1,5 @@
 <app-tab path="{{ path }}" title="{{ title }}">
-  @if (isLoadingStories) {
-  <span>Loading...</span>
-  } @else { @for(story of this.allStories; track story.id) {
+  @for(story of this.allStories; track story.id) {
   <div class="story">
     <div class="title">
       <app-page-link
@@ -25,5 +23,9 @@
       </span>
     </div>
   </div>
+  } @if (this.currentPage <= 24) { @if (isLoadingStories) {
+  <span>Loading...</span>
+  } @else {
+  <button (click)="this.loadNextStoriesPage()">Load More</button>
   } }
 </app-tab>

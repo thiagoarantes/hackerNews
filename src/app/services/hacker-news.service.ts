@@ -24,7 +24,7 @@ export class HackerNewsService {
     const usedIndex = currentIndex < 0 ? 0 : currentIndex;
 
     return ids
-      .slice(usedIndex, 20)
+      .slice(usedIndex, usedIndex + 20)
       .map((id) =>
         this.http.get(
           `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
