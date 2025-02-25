@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
 import { forkJoin } from 'rxjs';
@@ -12,7 +12,7 @@ import { HackerNewsService } from '../../services';
   templateUrl: './stories-tab.component.html',
   styleUrl: './stories-tab.component.scss',
 })
-export class StoriesTabComponent {
+export class StoriesTabComponent implements OnInit {
   private readonly router = inject(Router);
 
   readonly path = this.router.url.replace('/', '') as PageRoutes;

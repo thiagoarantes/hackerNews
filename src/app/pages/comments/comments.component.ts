@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
 import { TabComponent } from '../../components';
 import { PAGE_ROUTES, PAGE_TITLES, Story } from '../../types';
@@ -11,7 +11,7 @@ import { HackerNewsService } from '../../services';
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.scss',
 })
-export class CommentsComponent {
+export class CommentsComponent implements OnInit {
   private readonly router = inject(Router);
 
   readonly path = PAGE_ROUTES.comments;
@@ -20,16 +20,24 @@ export class CommentsComponent {
   isLoadingStory = true;
   story: Story = {} as Story;
 
-  constructor(private readonly dataService: HackerNewsService) {}
+  storyId: number = 0;
+
+  constructor(
+    private readonly dataService: HackerNewsService,
+    private readonly route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.loadNextStoriesPage();
+    this.route.params.subscribe((params) => {
+      this.storyId = params['storyId'];
+      this.loadNextStoriesPage();
+    });
   }
 
   loadNextStoriesPage() {
     this.isLoadingStory = true;
 
-    this.dataService.getStory(43163011).subscribe((res) => {
+    this.dataService.getStory(this.storyId).subscribe((res) => {
       this.isLoadingStory = false;
       this.story = res as Story;
       this.title += ` - ${(res as Story).title}`;

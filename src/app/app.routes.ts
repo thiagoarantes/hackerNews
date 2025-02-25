@@ -24,7 +24,7 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: `${PAGE_ROUTES.comments}/:commentId`,
+    path: `${PAGE_ROUTES.comments}/:storyId`,
     title: `${PAGE_TITLES.comments} - ${PAGE_TITLES.home}`,
     component: CommentsComponent,
   },
