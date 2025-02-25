@@ -19,13 +19,16 @@ export class StoriesTabComponent {
 
   allStories: any[] = [];
   isLoadingStories = true;
+  currentPage = 0;
 
   constructor(private readonly service: HackerNewsService) {}
 
   ngOnInit() {
-    this.service.getAllStories(this.path).subscribe((stories) => {
-      this.allStories = stories as any[];
-      this.isLoadingStories = false;
-    });
+    this.service
+      .getAllStories(this.path, this.currentPage)
+      .subscribe((stories) => {
+        this.allStories = stories as any[];
+        this.isLoadingStories = false;
+      });
   }
 }

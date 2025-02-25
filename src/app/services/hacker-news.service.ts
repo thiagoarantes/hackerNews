@@ -14,7 +14,10 @@ export class HackerNewsService {
     }),
   };
 
-  getAllStories(type: string) {
+  getAllStories(type: string, page: number) {
+    const currentIndex = page * 20 - 1;
+    const usedIndex = currentIndex < 0 ? 0 : currentIndex;
+
     return this.http
       .get(
         `https://hacker-news.firebaseio.com/v0/${type}stories.json?print=pretty`
@@ -23,7 +26,7 @@ export class HackerNewsService {
         mergeMap((ids) =>
           forkJoin(
             (ids as number[])
-              .slice(0, 20)
+              .slice(usedIndex, 20)
               .map((id) =>
                 this.http.get(
                   `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
