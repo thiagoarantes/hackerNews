@@ -11,7 +11,7 @@
     <div class="details">
       <span>{{ story.score }} points</span>
       <span>by {{ story.by }}</span>
-      <span>{{ story.time * 1000 | date : "yyyy-MM-dd HH:mm" }}</span>
+      <span>{{ story.time * 1000 | timeago }}</span>
       <span>
         @if(story.descendants) {
         <app-page-link

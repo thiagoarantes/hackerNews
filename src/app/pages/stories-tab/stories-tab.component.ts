@@ -1,14 +1,14 @@
-import { DatePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { TimeagoModule } from 'ngx-timeago';
+import { forkJoin } from 'rxjs';
 import { TabComponent, PageLinkComponent } from '../../components';
 import { PAGE_TITLES, PageRoutes, Story } from '../../types';
 import { HackerNewsService } from '../../services';
-import { Router } from '@angular/router';
-import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-stories-tab',
-  imports: [DatePipe, PageLinkComponent, TabComponent],
+  imports: [PageLinkComponent, TabComponent, TimeagoModule],
   templateUrl: './stories-tab.component.html',
   styleUrl: './stories-tab.component.scss',
 })
