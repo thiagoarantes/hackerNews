@@ -15,3 +15,15 @@ export const PAGE_TITLES = {
 export type PageRoutes = (typeof PAGE_ROUTES)[keyof typeof PAGE_ROUTES];
 
 export type PageTitles = (typeof PAGE_TITLES)[keyof typeof PAGE_TITLES];
+
+export type Story = {
+  by: string;
+  descendants: number;
+  id: number;
+  kids: number[];
+  score: number;
+  time: number;
+  title: string;
+  type: string;
+  url: string;
+};
