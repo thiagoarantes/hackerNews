@@ -30,7 +30,7 @@
       padding: 0;
 
       &:hover {
-        background-color: var(--page-hover);
+        background-color: var(--page-secondary);
         cursor: pointer;
       }
     }
@@ -46,7 +46,7 @@
     max-height: calc(100vh - 135px);
     background-color: var(--background-secondary);
     overflow-y: auto;
-    scrollbar-color: var(--page-hover) var(--background-secondary);
+    scrollbar-color: var(--page-secondary) var(--background-secondary);
     scrollbar-width: thin;
   }
 }

@@ -20,11 +20,10 @@ export class HackerNewsService {
   }
 
   getAllStories(ids: number[], page: number) {
-    const currentIndex = page * 20 - 1;
-    const usedIndex = currentIndex < 0 ? 0 : currentIndex;
+    const currentIndex = page * 20;
 
     return ids
-      .slice(usedIndex, usedIndex + 20)
+      .slice(currentIndex, currentIndex + 20)
       .map((id) =>
         this.http.get(
           `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`

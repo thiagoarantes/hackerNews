@@ -23,9 +23,15 @@
       </span>
     </div>
   </div>
-  } @if (this.currentPage <= 24) { @if (isLoadingStories) {
-  <span>Loading...</span>
-  } @else {
-  <button (click)="this.loadNextStoriesPage()">Load More</button>
-  } }
+  }
+  <div
+    class="more"
+    [class.visible]="this.currentPage <= 24 && this.allStories.length"
+  >
+    @if (this.currentPage <= 24) { @if (isLoadingStories) {
+    <span>Loading...</span>
+    } @else {
+    <button (click)="this.loadNextStoriesPage()">Load More</button>
+    } }
+  </div>
 </app-tab>
