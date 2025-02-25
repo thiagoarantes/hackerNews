@@ -3,6 +3,12 @@
 
   .title {
     white-space: nowrap;
+
+    .link {
+      color: var(--text-active);
+      text-decoration: underline;
+      font-weight: 600;
+    }
   }
 
   .details {
@@ -14,6 +20,12 @@
     gap: 10px;
     color: var(--text-inactive);
     font-weight: 600;
+
+    .comment {
+      text-decoration: underline;
+      font-weight: 600;
+      color: var(--story-secondary);
+    }
   }
 }
 

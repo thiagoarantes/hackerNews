@@ -1,9 +1,5 @@
 .link {
-  color: var(--text-active);
+  color: var(--story-secondary);
   text-decoration: underline;
   font-weight: 600;
-
-  &.comment {
-    color: var(--story-secondary);
-  }
 }

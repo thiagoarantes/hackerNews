@@ -6,6 +6,9 @@
     <div class="details">
       <span>by {{ comment.by }}</span>
       <span>{{ comment.time * 1000 | timeago }}</span>
+      @if(comment.kids?.length) {
+      <span>{{ comment.kids?.length }} replies</span>
+      }
     </div>
   </div>
   @for (subCommentId of this.comment.kids; track subCommentId) {

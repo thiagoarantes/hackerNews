@@ -6,6 +6,13 @@
       <span>{{ story.score }} points</span>
       <span>by {{ story.by }}</span>
       <span>{{ story.time * 1000 | timeago }}</span>
+      @if (story.descendants) {
+      <span
+        ><app-page-link
+          [title]="story.descendants + ' comments'"
+          [onClick]="toggleComments"
+      /></span>
+      }
     </div>
   </div>
   <div class="comments">

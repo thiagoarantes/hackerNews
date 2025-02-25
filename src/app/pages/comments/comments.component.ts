@@ -1,13 +1,17 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
-import { CommentComponent, TabComponent } from '../../components';
+import {
+  CommentComponent,
+  PageLinkComponent,
+  TabComponent,
+} from '../../components';
 import { PAGE_ROUTES, PAGE_TITLES, Story } from '../../types';
 import { HackerNewsService } from '../../services';
 
 @Component({
   selector: 'app-comments',
-  imports: [CommentComponent, TabComponent, TimeagoModule],
+  imports: [CommentComponent, PageLinkComponent, TabComponent, TimeagoModule],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.scss',
 })
@@ -20,6 +24,7 @@ export class CommentsComponent implements OnInit {
   isLoadingStory = true;
   storyId: number = 0;
   story: Story = {} as Story;
+  commentsOpen = true;
 
   constructor(
     private readonly dataService: HackerNewsService,
@@ -41,5 +46,10 @@ export class CommentsComponent implements OnInit {
       this.title += ` - ${(res as Story).title}`;
       this.isLoadingStory = false;
     });
+  }
+
+  toggleComments() {
+    console.log(333);
+    this.commentsOpen = !this.commentsOpen;
   }
 }

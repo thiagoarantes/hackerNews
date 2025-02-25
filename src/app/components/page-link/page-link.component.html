@@ -1,8 +1,3 @@
-<a
-  [routerLink]="href()"
-  routerLinkActive="active"
-  class="link"
-  [class.comment]="comment()"
-  [target]="openInNewWindow() ? '_new' : undefined"
-  >{{ title() }}</a
->
+<a class="link" href="javascript:void(0)" (onclick)="onClick()">{{
+  title()
+}}</a>

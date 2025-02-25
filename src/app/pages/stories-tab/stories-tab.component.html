@@ -2,11 +2,7 @@
   @for(story of this.allStories; track story.id) {
   <div class="story">
     <div class="title">
-      <app-page-link
-        [href]="story.url"
-        [title]="story.title"
-        [openInNewWindow]="true"
-      />
+      <a [href]="story.url" class="link" target="_new">{{ story.title }}</a>
     </div>
     <div class="details">
       <span>{{ story.score }} points</span>
@@ -14,11 +10,12 @@
       <span>{{ story.time * 1000 | timeago }}</span>
       <span>
         @if(story.descendants) {
-        <app-page-link
-          [href]="'/comments/' + story.id"
-          [title]="story.descendants + ' comments'"
-          [comment]="true"
-        />
+        <a
+          [routerLink]="'/comments/' + story.id"
+          routerLinkActive="active"
+          class="comment"
+          >{{ story.descendants }} comments</a
+        >
         }
       </span>
     </div>
