@@ -1,6 +1,7 @@
 import { Component, ElementRef, inject, input, viewChild } from '@angular/core';
 import { PageIconComponent } from '../page-icon/page-icon.component';
 import { Router } from '@angular/router';
+import { PageStateService } from '../../services';
 
 @Component({
   selector: 'app-tab',
@@ -16,7 +17,10 @@ export class TabComponent {
 
   content = viewChild<ElementRef>('content');
 
+  constructor(private readonly pageService: PageStateService) {}
+
   navigateToHome() {
     this.router.navigate(['home']);
+    this.pageService.setCurrentPage('home');
   }
 }

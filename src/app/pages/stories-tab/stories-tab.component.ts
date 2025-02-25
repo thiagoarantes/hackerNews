@@ -2,7 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { TabComponent, PageLinkComponent } from '../../components';
 import { PAGE_TITLES, PageRoutes } from '../../types';
-import { HackerNewsService } from '../../services/hacker-news.service';
+import { HackerNewsService } from '../../services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,9 +27,5 @@ export class StoriesTabComponent {
       this.allStories = stories as any[];
       this.isLoadingStories = false;
     });
-  }
-
-  displayDatePassedSince(date: number) {
-    return new DatePipe('en-US').transform(date * 1000, 'short');
   }
 }

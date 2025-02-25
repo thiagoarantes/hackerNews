@@ -15,7 +15,7 @@
       <div class="title">explorer</div>
       <ul class="pages">
         <li
-          [class.selected]="currentPage === 'new'"
+          [class.selected]="pageService.getCurrentPage()() === 'new'"
           (click)="navigateTo('new')"
           (keypress)="navigateTo('new')"
         >
@@ -23,7 +23,7 @@
           New Stories
         </li>
         <li
-          [class.selected]="currentPage === 'top'"
+          [class.selected]="pageService.getCurrentPage()() === 'top'"
           (click)="navigateTo('top')"
           (keypress)="navigateTo('top')"
         >
@@ -31,7 +31,7 @@
           Top Stories
         </li>
         <li
-          [class.selected]="currentPage === 'best'"
+          [class.selected]="pageService.getCurrentPage()() === 'best'"
           (click)="navigateTo('best')"
           (keypress)="navigateTo('best')"
         >
