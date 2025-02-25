@@ -1,7 +1,8 @@
 <div class="tab">
   <div class="title">
-    <app-page-icon [path]="path()"></app-page-icon>{{ title()
-    }}<button
+    <app-page-icon [path]="path()"></app-page-icon>
+    <span>{{ title() }}</span>
+    <button
       class="codicon codicon-chrome-close"
       (click)="navigateToHome()"
     ></button>

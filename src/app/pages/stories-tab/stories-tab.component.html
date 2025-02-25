@@ -1,4 +1,4 @@
-<app-tab path="{{ path }}" title="{{ title }}">
+<app-tab [path]="path" [title]="title">
   @for(story of this.allStories; track story.id) {
   <div class="story">
     <div class="title">
@@ -15,8 +15,8 @@
       <span>
         @if(story.descendants) {
         <app-page-link
-          [href]="story.url"
-          title="{{ story.descendants + ' comments' }}"
+          [href]="'/comments/' + story.id"
+          [title]="story.descendants + ' comments'"
           [comment]="true"
         />
         }

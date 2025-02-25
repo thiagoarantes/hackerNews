@@ -1,15 +1,17 @@
 export const PAGE_ROUTES = {
+  home: 'home',
   new: 'new',
   top: 'top',
   best: 'best',
-  home: 'home',
+  comments: 'comments',
 } as const;
 
 export const PAGE_TITLES = {
+  home: 'Hacker News',
   new: 'New Stories',
   top: 'Top Stories',
   best: 'Best Stories',
-  home: 'Hacker News',
+  comments: 'Comments',
 } as const;
 
 export type PageRoutes = (typeof PAGE_ROUTES)[keyof typeof PAGE_ROUTES];
