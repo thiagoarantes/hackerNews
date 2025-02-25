@@ -1,15 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
-import { forkJoin } from 'rxjs';
-import { TabComponent } from '../../components';
-import { Comment, PAGE_ROUTES, PAGE_TITLES, Story } from '../../types';
+import { CommentComponent, TabComponent } from '../../components';
+import { PAGE_ROUTES, PAGE_TITLES, Story } from '../../types';
 import { HackerNewsService } from '../../services';
-import { HtmlToPlainTextPipe } from '../../pipes/html-to-plain-text.pipe';
 
 @Component({
   selector: 'app-comments',
-  imports: [HtmlToPlainTextPipe, TabComponent, TimeagoModule],
+  imports: [CommentComponent, TabComponent, TimeagoModule],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.scss',
 })
@@ -22,7 +20,6 @@ export class CommentsComponent implements OnInit {
   isLoadingStory = true;
   storyId: number = 0;
   story: Story = {} as Story;
-  allComments: Comment[] = [];
 
   constructor(
     private readonly dataService: HackerNewsService,
@@ -32,29 +29,17 @@ export class CommentsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.storyId = params['storyId'];
-      this.loadComments();
+      this.loadStory();
     });
   }
 
-  loadComments() {
+  loadStory() {
     this.isLoadingStory = true;
 
-    this.dataService.getStory(this.storyId).subscribe((res) => {
+    this.dataService.getItem(this.storyId).subscribe((res) => {
       this.story = res as Story;
       this.title += ` - ${(res as Story).title}`;
-
-      const comments = this.dataService.getAllItems(this.story.kids);
-
-      forkJoin(comments).subscribe((res) => {
-        this.allComments = res as Comment[];
-        this.isLoadingStory = false;
-
-        console.log(this.allComments);
-      });
+      this.isLoadingStory = false;
     });
-  }
-
-  getDecodedText(text: string) {
-    return decodeURI(text);
   }
 }

@@ -31,7 +31,7 @@ export class HackerNewsService {
       );
   }
 
-  getStory(id: number) {
+  getItem(id: number) {
     return this.http.get(
       `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
     );

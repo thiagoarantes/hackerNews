@@ -1,0 +1,14 @@
+<div class="comment">
+  @if(this.isLoadingComment) { Loading comment... } @else { @if
+  (!isCensoredComment) {
+  <div>
+    <div class="text">{{ comment.text | htmlToPlainText }}</div>
+    <div class="details">
+      <span>by {{ comment.by }}</span>
+      <span>{{ comment.time * 1000 | timeago }}</span>
+    </div>
+  </div>
+  @for (subCommentId of this.comment.kids; track subCommentId) {
+  <app-comment [commentId]="subCommentId"></app-comment>
+  } } }
+</div>

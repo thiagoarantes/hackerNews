@@ -1,5 +1,5 @@
 <app-tab [path]="path" [title]="title">
-  @if(this.isLoadingStory) { Loading } @else {
+  @if(this.isLoadingStory) { Loading story... } @else {
   <div class="story">
     <div class="title">{{ story.title }}</div>
     <div class="details">
@@ -9,8 +9,8 @@
     </div>
   </div>
   <div class="comments">
-    @for(comment of this.allComments; track comment.id) {
-    <div class="comment">{{ comment.text | htmlToPlainText }}</div>
+    @for(commentId of this.story.kids; track commentId) {
+    <app-comment [commentId]="commentId"></app-comment>
     }
   </div>
   }

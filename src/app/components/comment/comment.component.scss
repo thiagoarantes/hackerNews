@@ -1,9 +1,7 @@
-.story {
-  margin-bottom: 6px;
-
-  .title {
-    white-space: nowrap;
-  }
+.comment {
+  border-left: 2px solid var(--divider-color);
+  padding-left: 20px;
+  margin-bottom: 12px;
 
   .details {
     font-family: var(--main-font-family);
@@ -14,9 +12,6 @@
     gap: 10px;
     color: var(--text-inactive);
     font-weight: 600;
+    margin-bottom: 12px;
   }
-}
-
-.comments {
-  margin-top: 12px;
 }
