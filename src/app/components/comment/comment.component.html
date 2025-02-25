@@ -7,11 +7,16 @@
       <span>by {{ comment.by }}</span>
       <span>{{ comment.time * 1000 | timeago }}</span>
       @if(comment.kids?.length) {
-      <span>{{ comment.kids?.length }} replies</span>
+      <span
+        ><app-page-link
+          [title]="comment.kids?.length + ' replies'"
+          [(open)]="showReplies"
+      /></span>
       }
     </div>
   </div>
-  @for (subCommentId of this.comment.kids; track subCommentId) {
+  @if (showReplies) { @for (subCommentId of this.comment.kids; track
+  subCommentId) {
   <app-comment [commentId]="subCommentId"></app-comment>
-  } } }
+  } } }}
 </div>
