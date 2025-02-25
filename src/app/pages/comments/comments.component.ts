@@ -1,8 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
+import { forkJoin } from 'rxjs';
 import { TabComponent } from '../../components';
-import { PAGE_ROUTES, PAGE_TITLES, Story } from '../../types';
+import { Comment, PAGE_ROUTES, PAGE_TITLES, Story } from '../../types';
 import { HackerNewsService } from '../../services';
 
 @Component({
@@ -18,9 +19,9 @@ export class CommentsComponent implements OnInit {
 
   title = PAGE_TITLES.comments;
   isLoadingStory = true;
-  story: Story = {} as Story;
-
   storyId: number = 0;
+  story: Story = {} as Story;
+  allComments: Comment[] = [];
 
   constructor(
     private readonly dataService: HackerNewsService,
@@ -30,17 +31,25 @@ export class CommentsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.storyId = params['storyId'];
-      this.loadNextStoriesPage();
+      this.loadComments();
     });
   }
 
-  loadNextStoriesPage() {
+  loadComments() {
     this.isLoadingStory = true;
 
     this.dataService.getStory(this.storyId).subscribe((res) => {
-      this.isLoadingStory = false;
       this.story = res as Story;
       this.title += ` - ${(res as Story).title}`;
+
+      const comments = this.dataService.getAllItems(this.story.kids);
+
+      forkJoin(comments).subscribe((res) => {
+        this.allComments = res as Comment[];
+        this.isLoadingStory = false;
+
+        console.log(this.allComments);
+      });
     });
   }
 }

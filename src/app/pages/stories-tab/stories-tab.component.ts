@@ -35,7 +35,7 @@ export class StoriesTabComponent implements OnInit {
   loadNextStoriesPage() {
     this.isLoadingStories = true;
 
-    const stories = this.dataService.getAllStories(
+    const stories = this.dataService.getAllItems(
       this.allStoriesIds,
       this.currentPage
     );

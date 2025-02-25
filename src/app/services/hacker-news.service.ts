@@ -19,7 +19,7 @@ export class HackerNewsService {
     );
   }
 
-  getAllStories(ids: number[], page: number = 0) {
+  getAllItems(ids: number[], page: number = 0) {
     const currentIndex = page * 20;
 
     return ids
