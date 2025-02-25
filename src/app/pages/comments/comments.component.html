@@ -10,15 +10,16 @@
       <span
         ><app-page-link
           [title]="story.descendants + ' comments'"
-          [onClick]="toggleComments"
+          [(open)]="showComments"
       /></span>
       }
     </div>
   </div>
+  @if(this.showComments) {
   <div class="comments">
     @for(commentId of this.story.kids; track commentId) {
     <app-comment [commentId]="commentId"></app-comment>
     }
   </div>
-  }
+  } }
 </app-tab>

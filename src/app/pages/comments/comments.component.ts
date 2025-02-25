@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
 import {
@@ -24,7 +24,8 @@ export class CommentsComponent implements OnInit {
   isLoadingStory = true;
   storyId: number = 0;
   story: Story = {} as Story;
-  commentsOpen = true;
+
+  protected showComments = true;
 
   constructor(
     private readonly dataService: HackerNewsService,
@@ -46,10 +47,5 @@ export class CommentsComponent implements OnInit {
       this.title += ` - ${(res as Story).title}`;
       this.isLoadingStory = false;
     });
-  }
-
-  toggleComments() {
-    console.log(333);
-    this.commentsOpen = !this.commentsOpen;
   }
 }

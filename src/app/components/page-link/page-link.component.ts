@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, model } from '@angular/core';
 
 @Component({
   selector: 'app-page-link',
@@ -8,5 +8,10 @@ import { Component, input } from '@angular/core';
 })
 export class PageLinkComponent {
   readonly title = input.required<string>();
-  readonly onClick = input.required<() => void>();
+
+  open = model<boolean>(false);
+
+  toggle() {
+    this.open.set(!this.open());
+  }
 }
