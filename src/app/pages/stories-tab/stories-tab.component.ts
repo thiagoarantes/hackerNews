@@ -23,10 +23,10 @@ export class StoriesTabComponent {
   isLoadingStories = true;
   currentPage = 0;
 
-  constructor(private readonly service: HackerNewsService) {}
+  constructor(private readonly dataService: HackerNewsService) {}
 
   ngOnInit() {
-    this.service.getAllStoriesIds(this.path).subscribe((ids) => {
+    this.dataService.getAllStoriesIds(this.path).subscribe((ids) => {
       this.allStoriesIds = ids as number[];
       this.loadNextStoriesPage();
     });
@@ -35,7 +35,7 @@ export class StoriesTabComponent {
   loadNextStoriesPage() {
     this.isLoadingStories = true;
 
-    const stories = this.service.getAllStories(
+    const stories = this.dataService.getAllStories(
       this.allStoriesIds,
       this.currentPage
     );

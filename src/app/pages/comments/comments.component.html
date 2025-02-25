@@ -1,1 +1,13 @@
-<app-tab path="{{ path }}" title="{{ title }}"></app-tab>
+<app-tab [path]="path" [title]="title">
+  @if(this.isLoadingStory) { Loading } @else {
+  <div class="story">
+    <div class="title">{{ story.title }}</div>
+    <div class="details">
+      <span>{{ story.score }} points</span>
+      <span>by {{ story.by }}</span>
+      <span>{{ story.time * 1000 | timeago }}</span>
+    </div>
+  </div>
+  <div><br /><br />Comments coming soon...</div>
+  }
+</app-tab>

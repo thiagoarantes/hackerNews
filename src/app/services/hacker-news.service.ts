@@ -19,7 +19,7 @@ export class HackerNewsService {
     );
   }
 
-  getAllStories(ids: number[], page: number) {
+  getAllStories(ids: number[], page: number = 0) {
     const currentIndex = page * 20;
 
     return ids
@@ -29,5 +29,11 @@ export class HackerNewsService {
           `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
         )
       );
+  }
+
+  getStory(id: number) {
+    return this.http.get(
+      `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
+    );
   }
 }
