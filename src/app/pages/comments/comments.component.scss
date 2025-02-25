@@ -16,3 +16,14 @@
     font-weight: 600;
   }
 }
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .comment {
+    border-left: 2px solid var(--divider-color);
+    padding-left: 10px;
+  }
+}

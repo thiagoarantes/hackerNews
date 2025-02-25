@@ -10,7 +10,7 @@
   </div>
   <div class="comments">
     @for(comment of this.allComments; track comment.id) {
-    <div>{{ comment.text }}<br /><br /></div>
+    <div class="comment">{{ comment.text | htmlToPlainText }}</div>
     }
   </div>
   }

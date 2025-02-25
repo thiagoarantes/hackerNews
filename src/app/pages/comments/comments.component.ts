@@ -5,10 +5,11 @@ import { forkJoin } from 'rxjs';
 import { TabComponent } from '../../components';
 import { Comment, PAGE_ROUTES, PAGE_TITLES, Story } from '../../types';
 import { HackerNewsService } from '../../services';
+import { HtmlToPlainTextPipe } from '../../pipes/html-to-plain-text.pipe';
 
 @Component({
   selector: 'app-comments',
-  imports: [TabComponent, TimeagoModule],
+  imports: [HtmlToPlainTextPipe, TabComponent, TimeagoModule],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.scss',
 })
@@ -51,5 +52,9 @@ export class CommentsComponent implements OnInit {
         console.log(this.allComments);
       });
     });
+  }
+
+  getDecodedText(text: string) {
+    return decodeURI(text);
   }
 }
