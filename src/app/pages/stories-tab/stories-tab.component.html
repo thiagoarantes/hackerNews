@@ -1,35 +1,31 @@
 <app-tab [path]="path" [title]="title">
-  @for(story of this.allStories; track story.id; let idx = $index) {
-  <div class="story">
-    <div class="count">{{ idx + 1 }}</div>
-    <div class="title">
-      <a [href]="story.url" class="link" target="_new">{{ story.title }}</a>
+  @for (story of this.allStories; track story.id; let idx = $index) {
+    <div class="story">
+      <div class="count">{{ idx + 1 }}</div>
+      <div class="title">
+        <a [href]="story.url" class="link" target="_new">{{ story.title }}</a>
+      </div>
+      <div class="details">
+        <span>{{ story.score }} points</span>
+        <span>by {{ story.by }}</span>
+        <span>{{ story.time * 1000 | timeago }}</span>
+        <span>
+          @if (story.descendants) {
+            <a [routerLink]="'/comments/' + story.id" routerLinkActive="active" class="comment"
+              >{{ story.descendants }} comments</a
+            >
+          }
+        </span>
+      </div>
     </div>
-    <div class="details">
-      <span>{{ story.score }} points</span>
-      <span>by {{ story.by }}</span>
-      <span>{{ story.time * 1000 | timeago }}</span>
-      <span>
-        @if(story.descendants) {
-        <a
-          [routerLink]="'/comments/' + story.id"
-          routerLinkActive="active"
-          class="comment"
-          >{{ story.descendants }} comments</a
-        >
-        }
-      </span>
-    </div>
-  </div>
   }
-  <div
-    class="more"
-    [class.visible]="this.currentPage <= 24 && this.allStories.length"
-  >
-    @if (this.currentPage <= 24) { @if (isLoadingStories) {
-    <span><app-loading /></span>
-    } @else {
-    <button (click)="this.loadNextStoriesPage()">Load More</button>
-    } }
+  <div class="more" [class.visible]="this.currentPage <= 24 && this.allStories.length">
+    @if (this.currentPage <= 24) {
+      @if (isLoadingStories) {
+        <span><app-loading /></span>
+      } @else {
+        <button (click)="this.loadNextStoriesPage()">Load More</button>
+      }
+    }
   </div>
 </app-tab>

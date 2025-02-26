@@ -1,33 +1,39 @@
 <div class="comment">
-  @if(this.isLoadingComment) { <app-loading /> } @else {
-  <div>
-    <div class="text" [class.invalid]="isInvalidComment">
-      {{ comment.text | htmlToPlainText }}
+  @if (this.isLoadingComment) {
+    <app-loading />
+  } @else {
+    <div>
+      <div class="text" [class.invalid]="isInvalidComment">
+        {{ comment.text | htmlToPlainText }}
+      </div>
+      <div class="details">
+        <span>by {{ comment.by }}</span>
+        <span>{{ comment.time * 1000 | timeago }}</span>
+
+        @if (comment.kids?.length && !isInvalidComment) {
+          <span>
+            <app-page-link [title]="comment.kids?.length + ' replies'" [(open)]="showReplies" />
+          </span>
+        }
+      </div>
     </div>
-    <div class="details">
-      <span>by {{ comment.by }}</span>
-      <span>{{ comment.time * 1000 | timeago }}</span>
-      @if(comment.kids?.length && !isInvalidComment) {
-      <span
-        ><app-page-link
-          [title]="comment.kids?.length + ' replies'"
-          [(open)]="showReplies"
-      /></span>
+
+    @if (comment.kids?.length && !isInvalidComment) {
+      <div class="arrow">
+        <div
+          class="codicon"
+          [class.codicon-chevron-right]="!showReplies"
+          [class.codicon-chevron-down]="showReplies"
+          (click)="toggleReplies()"
+          (keydown)="toggleReplies()"
+        ></div>
+      </div>
+    }
+
+    @if (showReplies) {
+      @for (subCommentId of this.comment.kids; track subCommentId) {
+        <app-comment [commentId]="subCommentId"></app-comment>
       }
-    </div>
-  </div>
-  @if(comment.kids?.length && !isInvalidComment) {
-  <div class="arrow">
-    <div
-      class="codicon"
-      [class.codicon-chevron-right]="!showReplies"
-      [class.codicon-chevron-down]="showReplies"
-      (click)="toggleReplies()"
-      (keydown)="toggleReplies()"
-    ></div>
-  </div>
-  } @if (showReplies) { @for (subCommentId of this.comment.kids; track
-  subCommentId) {
-  <app-comment [commentId]="subCommentId"></app-comment>
-  } } }
+    }
+  }
 </div>

@@ -2,10 +2,7 @@
   <div class="title">
     <app-page-icon [path]="path()"></app-page-icon>
     <span>{{ title() }}</span>
-    <button
-      class="codicon codicon-chrome-close"
-      (click)="navigateToHome()"
-    ></button>
+    <button class="codicon codicon-chrome-close" (click)="navigateToHome()"></button>
   </div>
   <div #content class="content"><ng-content></ng-content></div>
 </div>

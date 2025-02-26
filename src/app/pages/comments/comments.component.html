@@ -1,25 +1,28 @@
 <app-tab [path]="path" [title]="title">
-  @if(this.isLoadingStory) { <app-loading /> } @else {
-  <div class="story">
-    <div class="title">{{ story.title }}</div>
-    <div class="details">
-      <span>{{ story.score }} points</span>
-      <span>by {{ story.by }}</span>
-      <span>{{ story.time * 1000 | timeago }}</span>
-      @if (story.descendants) {
-      <span
-        ><app-page-link
-          [title]="story.descendants + ' comments'"
-          [(open)]="showComments"
-      /></span>
-      }
+  @if (this.isLoadingStory) {
+    <app-loading />
+  } @else {
+    <div class="story">
+      <div class="title">{{ story.title }}</div>
+      <div class="details">
+        <span>{{ story.score }} points</span>
+        <span>by {{ story.by }}</span>
+        <span>{{ story.time * 1000 | timeago }}</span>
+
+        @if (story.descendants) {
+          <span
+            ><app-page-link [title]="story.descendants + ' comments'" [(open)]="showComments"
+          /></span>
+        }
+      </div>
     </div>
-  </div>
-  @if(this.showComments) {
-  <div class="comments">
-    @for(commentId of this.story.kids; track commentId) {
-    <app-comment [commentId]="commentId"></app-comment>
+
+    @if (this.showComments) {
+      <div class="comments">
+        @for (commentId of this.story.kids; track commentId) {
+          <app-comment [commentId]="commentId"></app-comment>
+        }
+      </div>
     }
-  </div>
-  } }
+  }
 </app-tab>

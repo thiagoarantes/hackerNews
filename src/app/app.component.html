@@ -11,59 +11,59 @@
     </div>
 
     @if (navOpen) {
-    <div class="nav">
-      <div class="title">explorer</div>
-      <ul class="pages">
-        <li
-          [class.selected]="pageService.getCurrentPage()() === 'new'"
-          (click)="navigateTo('new')"
-          (keypress)="navigateTo('new')"
-        >
-          <app-page-icon path="new" />
-          New Stories
-        </li>
-        <li
-          [class.selected]="pageService.getCurrentPage()() === 'top'"
-          (click)="navigateTo('top')"
-          (keypress)="navigateTo('top')"
-        >
-          <app-page-icon path="top" />
-          Top Stories
-        </li>
-        <li
-          [class.selected]="pageService.getCurrentPage()() === 'best'"
-          (click)="navigateTo('best')"
-          (keypress)="navigateTo('best')"
-        >
-          <app-page-icon path="best" />
-          Best Stories
-        </li>
-        <li
-          [class.selected]="pageService.getCurrentPage()() === 'job'"
-          (click)="navigateTo('job')"
-          (keypress)="navigateTo('job')"
-        >
-          <app-page-icon path="job" />
-          Job Stories
-        </li>
-        <li
-          [class.selected]="pageService.getCurrentPage()() === 'ask'"
-          (click)="navigateTo('ask')"
-          (keypress)="navigateTo('ask')"
-        >
-          <app-page-icon path="ask" />
-          Ask HN
-        </li>
-        <li
-          [class.selected]="pageService.getCurrentPage()() === 'show'"
-          (click)="navigateTo('show')"
-          (keypress)="navigateTo('show')"
-        >
-          <app-page-icon path="show" />
-          Show HN
-        </li>
-      </ul>
-    </div>
+      <div class="nav">
+        <div class="title">explorer</div>
+        <ul class="pages">
+          <li
+            [class.selected]="pageService.getCurrentPage()() === 'new'"
+            (click)="navigateTo('new')"
+            (keypress)="navigateTo('new')"
+          >
+            <app-page-icon path="new" />
+            New Stories
+          </li>
+          <li
+            [class.selected]="pageService.getCurrentPage()() === 'top'"
+            (click)="navigateTo('top')"
+            (keypress)="navigateTo('top')"
+          >
+            <app-page-icon path="top" />
+            Top Stories
+          </li>
+          <li
+            [class.selected]="pageService.getCurrentPage()() === 'best'"
+            (click)="navigateTo('best')"
+            (keypress)="navigateTo('best')"
+          >
+            <app-page-icon path="best" />
+            Best Stories
+          </li>
+          <li
+            [class.selected]="pageService.getCurrentPage()() === 'job'"
+            (click)="navigateTo('job')"
+            (keypress)="navigateTo('job')"
+          >
+            <app-page-icon path="job" />
+            Job Stories
+          </li>
+          <li
+            [class.selected]="pageService.getCurrentPage()() === 'ask'"
+            (click)="navigateTo('ask')"
+            (keypress)="navigateTo('ask')"
+          >
+            <app-page-icon path="ask" />
+            Ask HN
+          </li>
+          <li
+            [class.selected]="pageService.getCurrentPage()() === 'show'"
+            (click)="navigateTo('show')"
+            (keypress)="navigateTo('show')"
+          >
+            <app-page-icon path="show" />
+            Show HN
+          </li>
+        </ul>
+      </div>
     }
 
     <div class="page">
