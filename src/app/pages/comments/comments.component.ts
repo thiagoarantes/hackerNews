@@ -4,6 +4,7 @@ import { TimeagoModule } from 'ngx-timeago';
 import {
   CommentComponent,
   PageLinkComponent,
+  SkeletonComponent,
   TabComponent,
 } from '../../components';
 import { PAGE_ROUTES, PAGE_TITLES, Story } from '../../types';

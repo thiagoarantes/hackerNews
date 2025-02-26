@@ -4,10 +4,16 @@ import { HtmlToPlainTextPipe } from '../../pipes/html-to-plain-text.pipe';
 import { Comment } from '../../types';
 import { HackerNewsService } from '../../services';
 import { PageLinkComponent } from '../page-link/page-link.component';
+import { SkeletonComponent } from '../skeleton/skeleton.component';
 
 @Component({
   selector: 'app-comment',
-  imports: [HtmlToPlainTextPipe, PageLinkComponent, TimeagoModule],
+  imports: [
+    HtmlToPlainTextPipe,
+    PageLinkComponent,
+    SkeletonComponent,
+    TimeagoModule,
+  ],
   templateUrl: './comment.component.html',
   styleUrl: './comment.component.scss',
 })
@@ -16,8 +22,8 @@ export class CommentComponent implements OnInit {
   readonly censoredComments = [undefined, '[flagged]', '[dead]'];
 
   isLoadingComment = true;
-  comment: Comment = {} as Comment;
   isCensoredComment = false;
+  comment: Comment = {} as Comment;
 
   protected showReplies = false;
 
@@ -37,5 +43,9 @@ export class CommentComponent implements OnInit {
       );
       this.isLoadingComment = false;
     });
+  }
+
+  toggleReplies() {
+    this.showReplies = !this.showReplies;
   }
 }

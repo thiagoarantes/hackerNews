@@ -2,6 +2,7 @@
   border-left: 2px solid var(--divider-color);
   padding-left: 20px;
   margin-bottom: 12px;
+  position: relative;
 
   .details {
     font-family: var(--main-font-family);
@@ -13,5 +14,19 @@
     color: var(--text-inactive);
     font-weight: 600;
     margin-bottom: 12px;
+  }
+
+  .arrow {
+    background-color: var(--background-secondary);
+    position: absolute;
+    left: -9px;
+    top: 1px;
+    cursor: pointer;
+    height: 17px;
+    border-radius: 2px;
+
+    &:hover {
+      background-color: var(--page-secondary);
+    }
   }
 }
