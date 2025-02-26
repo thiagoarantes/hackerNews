@@ -18,7 +18,9 @@ export class AppComponent {
   constructor(readonly pageService: PageStateService) {}
 
   ngOnInit() {
-    const path = window.location.pathname.replace('/', '') || PAGE_ROUTES.new;
+    const splittedUrl = window.location.pathname.split('/');
+    const path = splittedUrl[splittedUrl.length - 1] || PAGE_ROUTES.new;
+
     this.pageService.setCurrentPage(path as PageRoutes);
   }
 
