@@ -10,6 +10,11 @@
     grid-area: cnt;
     text-align: right;
     color: var(--text-inactive);
+    user-select: none;
+
+    &:hover {
+      color: var(--text-active);
+    }
   }
 
   .title {
