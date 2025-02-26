@@ -9,9 +9,9 @@
 
 @keyframes skeleton-loading {
   0% {
-    background-color: var(--page-secondary);
+    background-color: var(--background-secondary);
   }
   100% {
-    background-color: var(--page-tertiary);
+    background-color: var(--page-secondary);
   }
 }
