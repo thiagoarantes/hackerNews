@@ -1,12 +1,13 @@
 <div class="comment">
-  @if(this.isLoadingComment) { <app-skeleton /> } @else { @if
-  (!isCensoredComment) {
+  @if(this.isLoadingComment) { <app-loading /> } @else {
   <div>
-    <div class="text">{{ comment.text | htmlToPlainText }}</div>
+    <div class="text" [class.invalid]="isInvalidComment">
+      {{ comment.text | htmlToPlainText }}
+    </div>
     <div class="details">
       <span>by {{ comment.by }}</span>
       <span>{{ comment.time * 1000 | timeago }}</span>
-      @if(comment.kids?.length) {
+      @if(comment.kids?.length && !isInvalidComment) {
       <span
         ><app-page-link
           [title]="comment.kids?.length + ' replies'"
@@ -15,7 +16,7 @@
       }
     </div>
   </div>
-  @if(comment.kids?.length) {
+  @if(comment.kids?.length && !isInvalidComment) {
   <div class="arrow">
     <div
       class="codicon"
@@ -28,5 +29,5 @@
   } @if (showReplies) { @for (subCommentId of this.comment.kids; track
   subCommentId) {
   <app-comment [commentId]="subCommentId"></app-comment>
-  } } }}
+  } } }
 </div>

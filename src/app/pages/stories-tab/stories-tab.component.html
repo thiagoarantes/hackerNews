@@ -26,7 +26,7 @@
     [class.visible]="this.currentPage <= 24 && this.allStories.length"
   >
     @if (this.currentPage <= 24) { @if (isLoadingStories) {
-    <span>Loading...</span>
+    <span><app-loading /></span>
     } @else {
     <button (click)="this.loadNextStoriesPage()">Load More</button>
     } }

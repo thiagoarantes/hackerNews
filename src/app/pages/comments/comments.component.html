@@ -1,5 +1,5 @@
 <app-tab [path]="path" [title]="title">
-  @if(this.isLoadingStory) { Loading... } @else {
+  @if(this.isLoadingStory) { <app-loading /> } @else {
   <div class="story">
     <div class="title">{{ story.title }}</div>
     <div class="details">

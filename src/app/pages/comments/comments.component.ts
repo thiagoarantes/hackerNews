@@ -1,10 +1,10 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
 import {
   CommentComponent,
+  LoadingComponent,
   PageLinkComponent,
-  SkeletonComponent,
   TabComponent,
 } from '../../components';
 import { PAGE_ROUTES, PAGE_TITLES, Story } from '../../types';
@@ -12,7 +12,13 @@ import { HackerNewsService } from '../../services';
 
 @Component({
   selector: 'app-comments',
-  imports: [CommentComponent, PageLinkComponent, TabComponent, TimeagoModule],
+  imports: [
+    CommentComponent,
+    LoadingComponent,
+    PageLinkComponent,
+    TabComponent,
+    TimeagoModule,
+  ],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.scss',
 })

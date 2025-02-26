@@ -4,6 +4,12 @@
   margin-bottom: 12px;
   position: relative;
 
+  .text {
+    &.invalid {
+      color: var(--text-inactive);
+    }
+  }
+
   .details {
     font-family: var(--main-font-family);
     line-height: 10px;

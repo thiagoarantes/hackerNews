@@ -32,10 +32,10 @@
 .more {
   display: flex;
   align-items: center;
-  justify-content: center;
   border-radius: 4px;
 
   &.visible {
+    justify-content: center;
     background-color: var(--page-secondary);
     margin-top: 16px;
   }

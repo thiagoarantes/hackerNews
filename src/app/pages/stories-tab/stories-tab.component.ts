@@ -5,10 +5,18 @@ import { forkJoin } from 'rxjs';
 import { TabComponent } from '../../components';
 import { PAGE_TITLES, PageRoutes, Story } from '../../types';
 import { HackerNewsService } from '../../services';
+import { LoadingComponent } from '../../components/loading/loading.component';
 
 @Component({
   selector: 'app-stories-tab',
-  imports: [RouterLink, RouterLinkActive, TabComponent, TimeagoModule],
+  imports: [
+    LoadingComponent,
+    RouterLink,
+    RouterLinkActive,
+    TabComponent,
+    TimeagoModule,
+    LoadingComponent,
+  ],
   templateUrl: './stories-tab.component.html',
   styleUrl: './stories-tab.component.scss',
 })
