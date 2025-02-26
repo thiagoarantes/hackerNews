@@ -19,6 +19,26 @@ export const routes: Routes = [
     component: StoriesTabComponent,
   },
   {
+    path: PAGE_ROUTES.ask,
+    title: `${PAGE_TITLES.ask} - ${PAGE_TITLES.home}`,
+    component: StoriesTabComponent,
+  },
+  {
+    path: PAGE_ROUTES.show,
+    title: `${PAGE_TITLES.show} - ${PAGE_TITLES.home}`,
+    component: StoriesTabComponent,
+  },
+  {
+    path: PAGE_ROUTES.job,
+    title: `${PAGE_TITLES.job} - ${PAGE_TITLES.home}`,
+    component: StoriesTabComponent,
+  },
+  {
+    path: PAGE_ROUTES.ask,
+    title: `${PAGE_TITLES.ask} - ${PAGE_TITLES.home}`,
+    component: StoriesTabComponent,
+  },
+  {
     path: PAGE_ROUTES.home,
     title: PAGE_TITLES.home,
     component: HomeComponent,

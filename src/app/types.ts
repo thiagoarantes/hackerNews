@@ -3,6 +3,9 @@ export const PAGE_ROUTES = {
   new: 'new',
   top: 'top',
   best: 'best',
+  ask: 'ask',
+  job: 'job',
+  show: 'show',
   comments: 'comments',
 } as const;
 
@@ -11,6 +14,9 @@ export const PAGE_TITLES = {
   new: 'New Stories',
   top: 'Top Stories',
   best: 'Best Stories',
+  ask: 'Ask HN',
+  job: 'Job Stories',
+  show: 'Show HN',
   comments: 'Comments',
 } as const;
 

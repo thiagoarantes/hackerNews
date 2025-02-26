@@ -1,6 +1,6 @@
 <div
   class="codicon"
   [class.codicon-home]="path() === 'new'"
-  [class.codicon-globe]="path() === 'top' || path() === 'best'"
   [class.codicon-comment-discussion]="path() === 'comments'"
+  [class.codicon-globe]="path() !== 'new' && path() !== 'comments'"
 ></div>
