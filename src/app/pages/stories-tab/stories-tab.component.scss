@@ -1,7 +1,19 @@
 .story {
-  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  grid-column-gap: 25px;
+  grid-template-areas:
+    "cnt ttl"
+    "cnt det";
+
+  .count {
+    grid-area: cnt;
+    text-align: right;
+    color: var(--text-inactive);
+  }
 
   .title {
+    grid-area: ttl;
     white-space: nowrap;
 
     .link {
@@ -12,6 +24,7 @@
   }
 
   .details {
+    grid-area: det;
     font-family: var(--main-font-family);
     line-height: 10px;
     white-space: nowrap;
@@ -20,6 +33,7 @@
     gap: 10px;
     color: var(--text-inactive);
     font-weight: 600;
+    margin-bottom: 10px;
 
     .comment {
       text-decoration: underline;

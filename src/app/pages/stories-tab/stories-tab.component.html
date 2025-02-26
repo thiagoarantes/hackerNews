@@ -1,6 +1,7 @@
 <app-tab [path]="path" [title]="title">
-  @for(story of this.allStories; track story.id) {
+  @for(story of this.allStories; track story.id; let idx = $index) {
   <div class="story">
+    <div class="count">{{ idx + 1 }}</div>
     <div class="title">
       <a [href]="story.url" class="link" target="_new">{{ story.title }}</a>
     </div>
