@@ -1,4 +1,4 @@
-@import "../node_modules/@vscode/codicons/dist/codicon.css";
+@import '../node_modules/@vscode/codicons/dist/codicon.css';
 
 :root {
   --background-primary: #181818;
@@ -14,7 +14,7 @@
   --page-secondary: #37373d;
 
   --main-font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  --page-font-family: Menlo, Monaco, "Courier New", monospace;
+  --page-font-family: Menlo, Monaco, 'Courier New', monospace;
 
   font-family: var(--main-font-family);
   box-sizing: border-box;
@@ -30,19 +30,4 @@ body {
   max-height: 100%;
   font-size: 13px;
   background-color: var(--background-primary);
-}
-
-app-page-icon {
-  display: flex;
-  align-items: center;
-}
-
-app-all-stories,
-app-best-stories,
-app-home,
-app-new-stories,
-app-tab {
-  display: block;
-  height: 100%;
-  max-height: 100%;
 }

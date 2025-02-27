@@ -1,13 +1,18 @@
-.codicon {
-  color: var(--story-secondary);
-  font-size: 12px;
-  margin-top: 2px;
+:host {
+  display: flex;
+  align-items: center;
 
-  &-home {
-    color: var(--story-primary);
-  }
+  .codicon {
+    color: var(--story-secondary);
+    font-size: 12px;
+    margin-top: 2px;
 
-  &-comment-discussion {
-    color: var(--story-comments);
+    &-home {
+      color: var(--story-primary);
+    }
+
+    &-comment-discussion {
+      color: var(--story-comments);
+    }
   }
 }
